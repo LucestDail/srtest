@@ -9,8 +9,10 @@ import lombok.ToString;
 @Setter
 @ToString
 @NoArgsConstructor
-public class dataObject {
+public class DataObject {
 
-    String strData;
+    String strData1;
+    String strData2;
+    String strData3;
 
 }

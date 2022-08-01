@@ -1,10 +1,14 @@
 package com.sample.Controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.domain.DataObject;
 import com.google.gson.JsonObject;
 import com.sample.Service.SampleService;
 
@@ -20,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class SampleController {
 
+    @Autowired
     private final SampleService sampleService;
 
     /**
@@ -71,10 +76,11 @@ public class SampleController {
      * 
      * @param param
      * @return
+     * @throws Exception
      */
-    @RequestMapping(value = "path", method = RequestMethod.POST)
-    public JsonObject requestMethodName(@RequestParam String param) {
-        return new JsonObject();
+    @RequestMapping(value = "/postJson", method = RequestMethod.POST)
+    public JsonObject postJson(@RequestBody DataObject dataObject) throws Exception {
+        return sampleService.jsonFunction(dataObject);
     }
 
 }
