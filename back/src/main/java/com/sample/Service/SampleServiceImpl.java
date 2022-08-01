@@ -1,11 +1,12 @@
 package com.sample.Service;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
 
+import org.json.simple.JSONObject;
 import org.springframework.stereotype.Service;
 
 import com.domain.DataObject;
-import com.google.gson.JsonObject;
 
 @Service
 public class SampleServiceImpl implements SampleService {
@@ -16,10 +17,8 @@ public class SampleServiceImpl implements SampleService {
     }
 
     @Override
-    public JsonObject jsonFunction(DataObject dataObject) throws Exception {
-        System.out.println(dataObject);
-        JsonObject jsonObject = new JsonObject();
-        return jsonObject;
+    public JSONObject jsonFunction(DataObject dataObject) throws Exception {
+        return dataObject.getJson();
     }
 
 }

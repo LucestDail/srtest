@@ -1,5 +1,6 @@
 package com.sample.Controller;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -8,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.domain.DataObject;
-import com.google.gson.JsonObject;
 import com.sample.Service.SampleService;
 
 import lombok.RequiredArgsConstructor;
@@ -77,7 +77,8 @@ public class SampleController {
      * @throws Exception
      */
     @RequestMapping(value = "/postJson", method = RequestMethod.POST)
-    public JsonObject postJson(@RequestBody DataObject dataObject) throws Exception {
+    public JSONObject postJson(@RequestBody DataObject dataObject) throws Exception {
+        System.out.println(dataObject.isError());
         return sampleService.jsonFunction(dataObject);
     }
 
