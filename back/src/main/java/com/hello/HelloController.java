@@ -11,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 @CrossOrigin(origins = "*", allowedHeaders = "*")
 public class HelloController {
 
+	@Autowired
 	private final HelloService helloService;
 
 	@GetMapping("/hello")

@@ -19,7 +19,7 @@ public class SampleServiceImpl implements SampleService {
     public JsonObject jsonFunction(DataObject dataObject) throws Exception {
         System.out.println(dataObject);
         JsonObject jsonObject = new JsonObject();
-        return null;
+        return jsonObject;
     }
 
 }
