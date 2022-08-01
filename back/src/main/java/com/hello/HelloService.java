@@ -1,4 +1,4 @@
-package com.example.hello;
+package com.hello;
 
 import org.springframework.stereotype.Service;
 import java.time.LocalDateTime;
@@ -8,7 +8,7 @@ import lombok.RequiredArgsConstructor;
 @Service
 public class HelloService {
 
-    public String getHello(){
+    public String getHello() {
         return "Hello " + LocalDateTime.now();
     }
 
