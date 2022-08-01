@@ -5,9 +5,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.google.gson.JsonObject;
 import com.sample.Service.SampleService;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  * 2022.08.01 / 오승현
@@ -62,6 +64,17 @@ public class SampleController {
     @RequestMapping(value = "/sample", method = RequestMethod.PUT)
     public String putSample() throws Exception {
         return sampleService.getTimeString();
+    }
+
+    /**
+     * JSON Testing
+     * 
+     * @param param
+     * @return
+     */
+    @RequestMapping(value = "path", method = RequestMethod.POST)
+    public JsonObject requestMethodName(@RequestParam String param) {
+        return new JsonObject();
     }
 
 }
