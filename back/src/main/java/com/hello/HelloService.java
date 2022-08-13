@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
 public class HelloService {
 
     public String getHello() {
-        return "Hello test " + LocalDateTime.now();
+        return "Hello test 222 " + LocalDateTime.now();
     }
 
 }
