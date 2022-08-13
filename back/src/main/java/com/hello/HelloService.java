@@ -9,7 +9,7 @@ import lombok.RequiredArgsConstructor;
 public class HelloService {
 
     public String getHello() {
-        return "Hello " + LocalDateTime.now();
+        return "currenttime is " + LocalDateTime.now();
     }
 
 }
