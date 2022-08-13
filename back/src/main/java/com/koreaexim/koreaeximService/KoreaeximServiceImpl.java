@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import com.util.RestComponent;
+
 @Service
 public class KoreaeximServiceImpl implements KoreaeximService {
 
@@ -25,7 +27,7 @@ public class KoreaeximServiceImpl implements KoreaeximService {
     private String apiKey;
 
     @Override
-    public String getKoreaeximExchangeRate(String date) {
+    public String getKoreaeximExchangeRate(String date) throws Exception {
         // https://www.koreaexim.go.kr/site/program/financial/exchangeJSON?authkey=RpQ2hjrXVsPZN5IDSlMum5Lwm7VwKUot&searchdate=20220811&data=AP01
         URI uri = UriComponentsBuilder
                 .fromUriString("https://www.koreaexim.go.kr")
@@ -36,17 +38,8 @@ public class KoreaeximServiceImpl implements KoreaeximService {
                 .encode()
                 .build()
                 .toUri();
-        HttpComponentsClientHttpRequestFactory factory = new HttpComponentsClientHttpRequestFactory();
-        factory.setConnectTimeout(5000); // 타임아웃 설정 5초
-        factory.setReadTimeout(5000);// 타임아웃 설정 5초
-        RestTemplate restTemplate = new RestTemplate(factory);
-
-        HttpHeaders header = new HttpHeaders();
-        HttpEntity<?> entity = new HttpEntity<>(header);
-
-        ResponseEntity<String> responseEntityResult = restTemplate.exchange(uri.toString(), HttpMethod.GET, entity,
-                String.class);
-        return responseEntityResult.getBody();
+        RestComponent rc = new RestComponent();
+        return rc.getRequest(uri);
     }
 
 }
