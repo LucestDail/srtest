@@ -2,6 +2,8 @@ package com.kebhana.kebhanaService;
 
 import java.net.URI;
 
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -24,7 +26,11 @@ public class KebhanaServiceImpl implements KebhanaService {
                 .build()
                 .toUri();
         RestComponent rc = new RestComponent();
-        return rc.getRequest(uri).replace("var exView = ", "");
+
+        JSONParser parser = new JSONParser();
+        JSONObject json = (JSONObject) parser.parse(rc.getRequest(uri).replace("var exView = ", ""));
+
+        return json.toJSONString();
     }
 
 }

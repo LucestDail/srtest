@@ -3,12 +3,7 @@ import config from '../config';
 
 const { SERVER_URI } = config;
 
-export const getHello = async () => {
-    const response = await axios.get(`${SERVER_URI}/sample`);
-    return response;
-}
-
-export const postJson = async (jsonData) => {
-    const response = await axios.post(`${SERVER_URI}/postJson`, jsonData);
-    return response;
-}
+export const getHello = async () => {return await axios.get(`${SERVER_URI}/sample`);}
+export const postJson = async (jsonData) => {await axios.post(`${SERVER_URI}/postJson`, jsonData);}
+export const getKebhanaApi = async () => {return await axios.get(`${SERVER_URI}/kebhana/today`);}
+export const getKoreaeximApi = async (date) => {return await axios.get(`${SERVER_URI}/koreaexim/`+date);}

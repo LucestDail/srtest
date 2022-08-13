@@ -4,12 +4,15 @@ import './index.css';
 import App from './App';
 import Test from './Test';
 import reportWebVitals from './reportWebVitals';
+import Kebhana from './Kebhana';
+import Koreaexim from './Koreaexim';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <App />
-    <Test />
+    <Kebhana />
+    <Koreaexim />
   </React.StrictMode>
 );
 
