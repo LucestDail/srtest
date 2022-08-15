@@ -14,7 +14,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class SeleniumComponent {
 
-    private static String CHROME_PATH = "http://localhost:4444/";
+    private static String CHROME_PATH = "http://localhost:4444/wd/hub";
     protected static ThreadLocal<RemoteWebDriver> driver = new ThreadLocal<>();
 
     public String requestUrlByTag(String url, String elementName) throws Exception {
