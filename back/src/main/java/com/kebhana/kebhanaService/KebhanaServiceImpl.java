@@ -5,6 +5,7 @@ import java.net.URI;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
@@ -18,10 +19,14 @@ import com.util.RestComponent;
 
 @Service
 public class KebhanaServiceImpl implements KebhanaService {
+
+    @Value("${external.kebHana.api.url}")
+    private String kebHanaUrl;
+
     @Override
     public String getKebhanaExchangeRate() throws Exception {
         URI uri = UriComponentsBuilder
-                .fromUriString("http://fx.kebhana.com/FER1101M.web")
+                .fromUriString(kebHanaUrl)
                 .encode()
                 .build()
                 .toUri();
