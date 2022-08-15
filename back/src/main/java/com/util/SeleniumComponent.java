@@ -16,9 +16,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class SeleniumComponent {
     private static String SELENIUM_ID = "webdriver.chrome.driver";
-    private static String SELENIUM_PATH = "back/src/main/resources/external/selenium/chromedriver_104_mac64_m1";
-    // rivate static String SELENIUM_PATH =
-    // "back/src/main/resources/external/selenium/chromedriver_104_linux";
+    // private static String SELENIUM_PATH =
+    // "back/src/main/resources/external/selenium/chromedriver_104_mac64_m1";
+    private static String SELENIUM_PATH = "back/src/main/resources/external/selenium/chromedriver_104_linux";
 
     private final WebDriver driver;
 
