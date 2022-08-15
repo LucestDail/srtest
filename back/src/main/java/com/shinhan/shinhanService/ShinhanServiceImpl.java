@@ -1,10 +1,5 @@
 package com.shinhan.shinhanService;
 
-import org.jsoup.Jsoup;
-import org.jsoup.Connection.Response;
-import org.jsoup.nodes.Document;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
 import org.springframework.stereotype.Service;
 
 import com.util.SeleniumComponent;
