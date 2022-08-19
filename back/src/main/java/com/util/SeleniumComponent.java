@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.springframework.stereotype.Service;
 
-@Service
+// @Service
 public class SeleniumComponent {
     private static String SELENIUM_ID = "webdriver.chrome.driver";
     private static String SELENIUM_PATH_MAC = "back/src/main/resources/external/selenium/chromedriver_104_mac64_m1";
