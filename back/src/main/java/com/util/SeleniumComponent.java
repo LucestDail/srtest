@@ -9,12 +9,14 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.springframework.stereotype.Service;
 
-// @Service
+@Service
 public class SeleniumComponent {
     private static String SELENIUM_ID = "webdriver.chrome.driver";
-    private static String SELENIUM_PATH_MAC = "back/src/main/resources/external/selenium/chromedriver_104_mac64_m1";
-    private static String SELENIUM_PATH_LINUX = "back/src/main/resources/external/selenium/chromedriver_104_linux";
-    private static String SELENIUM_PATH_JENKINS = "src/main/resources/external/selenium/chromedriver_104_linux";
+    private static String SELENIUM_PATH_JENKINS = "src/main/resources/external/selenium/chromedriver_linux64/chromedriver";
+    private static String SELENIUM_PATH_MAC = "back/src/main/resources/external/selenium/chromedriver_mac64/chromedriver";
+    private static String SELENIUM_PATH_MAC_M1 = "back/src/main/resources/external/selenium/chromedriver_mac64_m1/chromedriver";
+    private static String SELENIUM_PATH_LINUX = "back/src/main/resources/external/selenium/chromedriver_linux64/chromedriver";
+    private static String SELENIUM_PATH_WINDOWS = "back/src/main/resources/external/selenium/chromedriver_win32/chromedriver.exe";
     private WebDriver driver;
 
     public SeleniumComponent() {
@@ -44,16 +46,44 @@ public class SeleniumComponent {
                 driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
             } catch (Exception eB) {
                 eB.printStackTrace();
-                System.setProperty(SELENIUM_ID, SELENIUM_PATH_MAC);
-                ChromeOptions options = new ChromeOptions();
-                options.setHeadless(true);
-                options.addArguments("--lang=ko");
-                options.addArguments("--no-sandbox");
-                options.addArguments("--disable-dev-shm-usage");
-                options.addArguments("--disable-gpu");
-                options.setCapability("ignoreProtectedModeSettings", true);
-                driver = new ChromeDriver(options);
-                driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+                try {
+                    System.setProperty(SELENIUM_ID, SELENIUM_PATH_WINDOWS);
+                    ChromeOptions options = new ChromeOptions();
+                    options.setHeadless(true);
+                    options.addArguments("--lang=ko");
+                    options.addArguments("--no-sandbox");
+                    options.addArguments("--disable-dev-shm-usage");
+                    options.addArguments("--disable-gpu");
+                    options.setCapability("ignoreProtectedModeSettings", true);
+                    driver = new ChromeDriver(options);
+                    driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+                } catch (Exception eC) {
+                    eC.printStackTrace();
+                    try {
+                        System.setProperty(SELENIUM_ID, SELENIUM_PATH_MAC);
+                        ChromeOptions options = new ChromeOptions();
+                        options.setHeadless(true);
+                        options.addArguments("--lang=ko");
+                        options.addArguments("--no-sandbox");
+                        options.addArguments("--disable-dev-shm-usage");
+                        options.addArguments("--disable-gpu");
+                        options.setCapability("ignoreProtectedModeSettings", true);
+                        driver = new ChromeDriver(options);
+                        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+                    } catch (Exception eD) {
+                        eD.printStackTrace();
+                        System.setProperty(SELENIUM_ID, SELENIUM_PATH_MAC_M1);
+                        ChromeOptions options = new ChromeOptions();
+                        options.setHeadless(true);
+                        options.addArguments("--lang=ko");
+                        options.addArguments("--no-sandbox");
+                        options.addArguments("--disable-dev-shm-usage");
+                        options.addArguments("--disable-gpu");
+                        options.setCapability("ignoreProtectedModeSettings", true);
+                        driver = new ChromeDriver(options);
+                        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
+                    }
+                }
             }
         }
     }
@@ -62,7 +92,6 @@ public class SeleniumComponent {
         driver.get(url);
         WebElement webElement = driver.findElement(By.tagName(elementName));
         String outerHTML = webElement.getAttribute("outerHTML");
-        quitDriver();
         return outerHTML;
     }
 
@@ -71,7 +100,6 @@ public class SeleniumComponent {
         WebElement webElement = driver.findElement(By.tagName("body"));
         WebElement targetElement = webElement.findElement(By.id(idName));
         String outerHTML = targetElement.getAttribute("outerHTML");
-        quitDriver();
         return outerHTML;
     }
 

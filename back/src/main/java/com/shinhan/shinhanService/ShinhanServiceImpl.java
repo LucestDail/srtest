@@ -13,13 +13,12 @@ public class ShinhanServiceImpl implements ShinhanService {
     @Value("${external.shinhan.api.url}")
     private String url;
 
-    // @Autowired
-    // public SeleniumComponent seleniumComponent;
+    @Autowired
+    public SeleniumComponent seleniumComponent;
 
     @Override
     public String getExchangeRate() throws Exception {
-        return null;
-        // return seleniumComponent.requestUrlById(url, "grd_list_1");
+        return seleniumComponent.requestUrlById(url, "grd_list_1");
     }
 
 }
