@@ -36,8 +36,7 @@ public class DcinsideServiceImpl implements DcinsideService {
 
     @Override
     public String getPage(String page) throws Exception {
-        String fullUrlString = dcinsideUrl + page + dcinsideUrlEtc;
-        return seleniumComponent.requestUrlbyClass(fullUrlString, dcinsideTargetElemenString);
+        return seleniumComponent.requestUrlbyClass(dcinsideUrl + page + dcinsideUrlEtc, dcinsideTargetElemenString);
     }
 
 }
