@@ -21,7 +21,7 @@ public class ShinhanController {
     private final ShinhanService shinhanService;
 
     /**
-     * get Kb ExchangeRate
+     * get Shinhan ExchangeRate
      * 
      * @param param
      * @return
