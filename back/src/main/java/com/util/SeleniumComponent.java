@@ -1,5 +1,6 @@
 package com.util;
 
+import java.io.File;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
@@ -23,6 +24,10 @@ public class SeleniumComponent {
 
     public SeleniumComponent() {
         try {
+            File file = new File(SELENIUM_PATH_JENKINS);
+            file.setReadable(true, false);
+            file.setExecutable(true, false);
+            file.setWritable(true, false);
             System.setProperty(SELENIUM_ID, SELENIUM_PATH_JENKINS);
             ChromeOptions options = new ChromeOptions();
             options.setHeadless(true);
@@ -39,6 +44,10 @@ public class SeleniumComponent {
         } catch (Exception eA) {
             eA.printStackTrace();
             try {
+                File file = new File(SELENIUM_PATH_LINUX);
+                file.setReadable(true, false);
+                file.setExecutable(true, false);
+                file.setWritable(true, false);
                 System.setProperty(SELENIUM_ID, SELENIUM_PATH_LINUX);
                 ChromeOptions options = new ChromeOptions();
                 options.setHeadless(true);
@@ -55,6 +64,10 @@ public class SeleniumComponent {
             } catch (Exception eB) {
                 eB.printStackTrace();
                 try {
+                    File file = new File(SELENIUM_PATH_WINDOWS);
+                    file.setReadable(true, false);
+                    file.setExecutable(true, false);
+                    file.setWritable(true, false);
                     System.setProperty(SELENIUM_ID, SELENIUM_PATH_WINDOWS);
                     ChromeOptions options = new ChromeOptions();
                     options.setHeadless(true);
@@ -71,6 +84,10 @@ public class SeleniumComponent {
                 } catch (Exception eC) {
                     eC.printStackTrace();
                     try {
+                        File file = new File(SELENIUM_PATH_MAC);
+                        file.setReadable(true, false);
+                        file.setExecutable(true, false);
+                        file.setWritable(true, false);
                         System.setProperty(SELENIUM_ID, SELENIUM_PATH_MAC);
                         ChromeOptions options = new ChromeOptions();
                         options.setHeadless(true);
@@ -86,6 +103,10 @@ public class SeleniumComponent {
                         driver.manage().timeouts().setScriptTimeout(5, TimeUnit.SECONDS);
                     } catch (Exception eD) {
                         eD.printStackTrace();
+                        File file = new File(SELENIUM_PATH_MAC_M1);
+                        file.setReadable(true, false);
+                        file.setExecutable(true, false);
+                        file.setWritable(true, false);
                         System.setProperty(SELENIUM_ID, SELENIUM_PATH_MAC_M1);
                         ChromeOptions options = new ChromeOptions();
                         options.setHeadless(true);
