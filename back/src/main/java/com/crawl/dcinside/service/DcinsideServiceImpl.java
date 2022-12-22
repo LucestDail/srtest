@@ -31,12 +31,14 @@ public class DcinsideServiceImpl implements DcinsideService {
     @Autowired
     public JsoupComponent jsoupComponent;
 
-    @Autowired
-    public SeleniumComponent seleniumComponent;
+    // @Autowired
+    // public SeleniumComponent seleniumComponent;
 
     @Override
     public String getPage(String page) throws Exception {
-        return seleniumComponent.requestUrlbyClass(dcinsideUrl + page + dcinsideUrlEtc, dcinsideTargetElemenString);
+        // return seleniumComponent.requestUrlbyClass(dcinsideUrl + page +
+        // dcinsideUrlEtc, dcinsideTargetElemenString);
+        return null;
     }
 
 }

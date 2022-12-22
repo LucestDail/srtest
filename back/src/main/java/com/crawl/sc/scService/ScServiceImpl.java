@@ -19,12 +19,13 @@ public class ScServiceImpl implements ScService {
     @Autowired
     public JsoupComponent jsoupComponent;
 
-    @Autowired
-    public SeleniumComponent seleniumComponent;
+    // @Autowired
+    // public SeleniumComponent seleniumComponent;
 
     @Override
     public String getExchangeRate() throws Exception {
-        return seleniumComponent.requestUrlById(scUrl, targetElement);
+        // return seleniumComponent.requestUrlById(scUrl, targetElement);
+        return null;
     }
 
 }

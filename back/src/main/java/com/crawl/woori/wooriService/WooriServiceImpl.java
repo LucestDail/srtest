@@ -19,12 +19,13 @@ public class WooriServiceImpl implements WooriService {
     @Autowired
     public JsoupComponent jsoupComponent;
 
-    @Autowired
-    public SeleniumComponent seleniumComponent;
+    // @Autowired
+    // public SeleniumComponent seleniumComponent;
 
     @Override
     public String getExchangeRate() throws Exception {
-        return seleniumComponent.requestUrlById(wooriUrl, targetElement);
+        // return seleniumComponent.requestUrlById(wooriUrl, targetElement);
+        return null;
     }
 
 }

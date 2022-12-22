@@ -19,12 +19,13 @@ public class KnbServiceImpl implements KnbService {
     @Autowired
     public JsoupComponent jsoupComponent;
 
-    @Autowired
-    public SeleniumComponent seleniumComponent;
+    // @Autowired
+    // public SeleniumComponent seleniumComponent;
 
     @Override
     public String getExchangeRate() throws Exception {
-        return seleniumComponent.requestUrlById(knbUrl, targetElement);
+        // return seleniumComponent.requestUrlById(knbUrl, targetElement);
+        return null;
     }
 
 }
