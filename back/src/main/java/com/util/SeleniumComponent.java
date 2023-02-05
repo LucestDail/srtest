@@ -12,7 +12,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.springframework.stereotype.Service;
 
-// @Service
+@Service
 public class SeleniumComponent {
     private static String SELENIUM_ID = "webdriver.chrome.driver";
     private static String SELENIUM_PATH_JENKINS = "/var/lib/jenkins/workspace/srtest/back/src/main/resources/external/selenium/chromedriver_linux64/chromedriver";
