@@ -29,7 +29,7 @@
 #RUN wget -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/`curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE`/chromedriver_linux64.zip
 #RUN unzip /tmp/chromedriver.zip chromedriver -d /usr/local/bin/
 
-FROM openjdk:17-jdk-alpine
+FROM openjdk:17
 ARG JAR_FILE=target/*.jar
 COPY ${JAR_FILE} app.jar
 ENTRYPOINT ["java","-jar","app.jar"]
