@@ -23,7 +23,7 @@ public class SeleniumComponent {
     private static String SELENIUM_ID = "webdriver.chrome.driver";
     private static String SELENIUM_PATH_JENKINS = "external/selenium/chromedriver_linux64/chromedriver";
     private static String SELENIUM_PATH_MAC = "external/selenium/chromedriver_mac64/chromedriver";
-    private static String SELENIUM_PATH_MAC_M1 = "external/selenium/chromedriver_mac64_m1/chromedriver";
+    private static String SELENIUM_PATH_MAC_M1 = "external/selenium/chromedriver_mac64_arm64/chromedriver";
     private static String SELENIUM_PATH_LINUX = "external/selenium/chromedriver_linux64/chromedriver";
     private static String SELENIUM_PATH_WINDOWS = "external/selenium/chromedriver_win32/chromedriver.exe";
     private WebDriver driver;
